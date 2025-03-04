@@ -111,11 +111,32 @@ main > * {
 
     }
 
+    .menu-background {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0); /* Invisible */
+        z-index: 3; /* Debajo del menú */
+    }
+
+    /* Mostrar el fondo cuando el menú está abierto */
+    #menu-toggle:checked ~ .menu-background {
+        display: block;
+    }
+
+    /* Mostrar el menú cuando el checkbox está marcado */
+    #menu-toggle:checked + .hamburger + .menu-background + nav .menu {
+        display: flex;
+    }
+
     .menu a {
         display: block;
         width: 100%;
     }
-    
+
     nav:focus-within .menu {
     display: flex;
 }
