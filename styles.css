@@ -36,14 +36,11 @@ header {
     list-style: none;
     display: flex;
     gap: 1rem;
-   }
+    padding: 10px 0px 10px 10px;
+    margin-left: 11px;
+    margin-top: 15px;
+}   
 
- .menu ul {
-   padding: 10px 0px 10px 10px;
-   margin-left: 11px;
-   margin-top: 15px;
-
- }  
 
 .menu li a {
     text-decoration: none;
@@ -76,7 +73,7 @@ main {
     background-size: cover; /* 🔥 La imagen se ajusta para cubrir todo el área */
     background-position: center; /* 🔥 La imagen se centra */
     background-repeat: no-repeat; /* 🔥 Evita que la imagen se repita */
-     flex-grow: 1; /* 🔥 El contenido crece para ocupar el espacio restante */
+    flex-grow: 1; /* 🔥 El contenido crece para ocupar el espacio restante */
 }
 
 main::before {
@@ -110,8 +107,18 @@ main > * {
         background: #bbe6a3;
         width: 150px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        z-index: 2;
 
     }
+
+    .menu a {
+        display: block;
+        width: 100%;
+    }
+    
+    nav:focus-within .menu {
+    display: flex;
+}
 
     /* Mostrar el icono de hamburguesa */
     .hamburger {
