@@ -1,0 +1,131 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos del header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #aae489;
+}
+
+/* Logo */
+
+
+   .logo img {
+    border: 2px solid #23aa18;
+    max-width: 60%; /* Nunca será más ancho que el 60% del viewport */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Evita espacios extra debajo de la imagen */
+}
+
+/* Menú de escritorio */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+   }
+
+ .menu ul {
+   padding: 10px 0px 10px 10px;
+   margin-left: 11px;
+   margin-top: 15px;
+
+ }  
+
+.menu li a {
+    text-decoration: none;
+    color: #23aa18;
+}
+
+/* Ocultar el checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Icono de menú hamburguesa */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #66ad15;
+    margin-top: auto;
+}
+
+main {
+    position: relative;
+    background-image: url('/img/fotofondoedificio.jpg'); /* 🔥 Ruta de la imagen */
+    background-size: cover; /* 🔥 La imagen se ajusta para cubrir todo el área */
+    background-position: center; /* 🔥 La imagen se centra */
+    background-repeat: no-repeat; /* 🔥 Evita que la imagen se repita */
+     flex-grow: 1; /* 🔥 El contenido crece para ocupar el espacio restante */
+}
+
+main::before {
+    content: ""; /* Necesario para que el pseudo-elemento funcione */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* 🔥 Capa blanca semitransparente */
+    z-index: 1; /* Asegura que quede sobre la imagen */
+}
+
+/* Para que el contenido de main esté sobre la capa */
+main > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+    /* Esconder el menú por defecto */
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #bbe6a3;
+        width: 150px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    }
+
+    /* Mostrar el icono de hamburguesa */
+    .hamburger {
+        display: block;
+        position: absolute;  /* Lo posicionamos de forma absoluta */
+        right: 10px;         /* 🔥 Cambiamos 'left' por 'right' para que aparezca a la derecha */
+        border: 1px solid #009100;
+        padding: 2px 3px 2px 3px;
+        border-radius: 5px;
+        
+    }
+
+    /* Cuando el checkbox está marcado, mostrar el menú */
+    #menu-toggle:checked + .hamburger + nav .menu {
+        display: flex;
+    }
+}
